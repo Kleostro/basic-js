@@ -17,8 +17,7 @@ const { NotImplementedError } = require('../extensions/index.js');
  */
 function repeater(str, options) {
   const { repeatTimes = 1, separator = '+', addition = '', additionRepeatTimes = 1, additionSeparator = '|' } = options;
-  const repeatedAddition = Array(additionRepeatTimes).fill(String(addition)).join(additionSeparator);
-  return Array(repeatTimes).fill(String(str) + repeatedAddition).join(separator);
+  return Array(repeatTimes).fill(String(str) + (Array(additionRepeatTimes).fill(String(addition)).join(additionSeparator))).join(separator);
 }
 
 module.exports = {
